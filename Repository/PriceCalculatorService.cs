@@ -19,6 +19,7 @@ namespace PotterBookStore.Repository
         {
             double totalPrice = CalculateTotalPrice(basket);
             double discount = CalculateDiscount(basket);
+            totalPrice -= discount;
             return totalPrice;
         }
 

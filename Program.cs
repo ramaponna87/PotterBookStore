@@ -19,6 +19,9 @@ class Program
         // Add books to the basket
         var basket = new List<Book> { book1, book2, book3, book4 };
 
-        Console.WriteLine("Hello!!");
+        // Calculate total price
+        double totalPrice = priceCalculatorService.CalculatePrice(basket);
+
+        Console.WriteLine($"Total price: {totalPrice} EUR");
     }
 }
