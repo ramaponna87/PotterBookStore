@@ -29,6 +29,24 @@ namespace PotterBookStore.Repository
             var totalPrice = CalculateTotalPrice(basket);
             double discount = 0;
 
+            switch (distinctBooksCount)
+            {
+                case 2:
+                    discount = totalPrice * 0.05;
+                    break;
+                case 3:
+                    discount = totalPrice * 0.10;
+                    break;
+                case 4:
+                    discount = totalPrice * 0.20;
+                    break;
+                case 5:
+                    discount = totalPrice * 0.25;
+                    break;
+                default:
+                    break;
+            }
+
             return discount;
         }
 
