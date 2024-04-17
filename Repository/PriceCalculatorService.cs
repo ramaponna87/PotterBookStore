@@ -9,5 +9,9 @@ namespace PotterBookStore.Repository
 {
     public class PriceCalculatorService : IPriceCalculatorService
     {
+        public double CalculatePrice(IEnumerable<Book> basket)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
