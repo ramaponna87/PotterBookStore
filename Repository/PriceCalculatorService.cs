@@ -39,7 +39,7 @@ namespace PotterBookStore.Repository
                     discount = totalPrice * 0.10;
                     break;
                 case 4:
-                    discount = totalPrice * 0.20;
+                    discount = CalculateFourBooksDiscount(basket);
                     break;
                 case 5:
                     discount = totalPrice * 0.25;
@@ -60,6 +60,29 @@ namespace PotterBookStore.Repository
                 totalPrice += book.Price;
             }
             return totalPrice;
+        }
+
+        // Method to calculate discount for four books with three distinct titles
+        private double CalculateFourBooksDiscount(IEnumerable<Book> basket)
+        {
+            var distinctBookTitlesCount = basket.Select(b => b.Title).Distinct().Count();
+            var totalCount = basket.Count();
+            var regularPrice = basket.First().Price;
+
+            double discount = 0;
+
+            if (distinctBookTitlesCount == 3 && totalCount == 4)
+            {
+                // 10% discount on the 3 different titles, 4th book remains at regular price
+                discount = regularPrice * 3 * 0.10;
+            }
+            else
+            {
+                // 20% discount on all 4 different titles
+                discount = regularPrice * 4 * 0.20;
+            }
+
+            return discount;
         }
     }
 }
