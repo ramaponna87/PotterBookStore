@@ -8,7 +8,14 @@ using System.Threading.Tasks;
 namespace PotterBookStore.Repository
 {
     public class PriceCalculatorService : IPriceCalculatorService
-    {
+    {       
+        private readonly IBookRepository _bookRepository;
+
+        public PriceCalculatorService(IBookRepository bookRepository)
+        {
+            _bookRepository = bookRepository;
+        }
+
         public double CalculatePrice(IEnumerable<Book> basket)
         {
             throw new NotImplementedException();
