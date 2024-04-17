@@ -9,6 +9,6 @@ namespace PotterBookStore.Repository.IRepository
     //Interface for the book repository
     public interface IBookRepository
     {
-       
+        IEnumerable<Book> GetAllBooks();
     }
 }

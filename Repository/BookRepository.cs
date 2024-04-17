@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 namespace PotterBookStore.Repository
 {
     public class BookRepository : IBookRepository
-    {       
+    {
+        public IEnumerable<Book> GetAllBooks()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
