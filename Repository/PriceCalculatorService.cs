@@ -17,14 +17,20 @@ namespace PotterBookStore.Repository
         }
         public double CalculatePrice(IEnumerable<Book> basket)
         {
-            double totalPrice = CalculateTotalPrice(basket);         
+            double totalPrice = CalculateTotalPrice(basket);        
          
             return totalPrice;
         }
 
+        // Method to calculate the total price of the books
         private double CalculateTotalPrice(IEnumerable<Book> basket)
         {
-            throw new NotImplementedException();
+            double totalPrice = 0;
+            foreach (var book in basket)
+            {
+                totalPrice += book.Price;
+            }
+            return totalPrice;
         }
     }
 }
