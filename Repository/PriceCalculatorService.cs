@@ -17,9 +17,19 @@ namespace PotterBookStore.Repository
         }
         public double CalculatePrice(IEnumerable<Book> basket)
         {
-            double totalPrice = CalculateTotalPrice(basket);        
-         
+            double totalPrice = CalculateTotalPrice(basket);
+            double discount = CalculateDiscount(basket);
             return totalPrice;
+        }
+
+        // Method to calculate the discount based on the number of distinct books
+        private double CalculateDiscount(IEnumerable<Book> basket)
+        {
+            var distinctBooksCount = basket.Distinct().Count();
+            var totalPrice = CalculateTotalPrice(basket);
+            double discount = 0;
+
+            return discount;
         }
 
         // Method to calculate the total price of the books
